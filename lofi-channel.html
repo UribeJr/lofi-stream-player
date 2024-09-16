@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoFly Radio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/xya2tnq.css">
+</head>
+<body>
+
+    <!-- Background video -->
+     
+    <div class="overlay"></div>
+    
+    <!-- <video class="background-video" autoplay muted loop>
+        <source src="lofi-background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> -->
+
+    <img id="background-image" class="background-image" src="bg.gif">
+
+    <div class="bg-options">
+        <button onclick="changeBackground('bg.gif')">Street Girl</button>
+        <button onclick="changeBackground('onepunch.gif')">Anime</button>
+        <button onclick="changeBackground('rain.gif')">Rain</button>
+    </div>
+
+    <div class="container">
+        <!-- Custom Audio Player -->
+        <div class="custom-audio-player">
+            <button id="playPauseBtn">Play</button>
+            <!-- <button id="stopBtn">Stop</button> -->
+            <!-- <div class="progress">
+                <div id="progressBar"></div>
+            </div> -->
+            <span class="stream-message">24/7 Lofi 👾</span>
+        </div>
+        <audio id="audio" src="http://usa9.fastcast4u.com/proxy/jamz?mp=/1" preload="auto"></audio>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

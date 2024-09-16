@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #fff;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.222); /* Adjust opacity for the darkening effect */
+    z-index: 0; /* Place above the GIF but below other content */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.container {
+    position: absolute;
+    bottom: 20px; /* Position 20px from the bottom */
+    left: 20px;   /* Position 20px from the left */
+    max-width: 600px;
+    padding: 20px;
+    background: none; /* Keep transparent background */
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+    width: auto; /* Adjust width to fit content */
+    flex-direction: column;
+}
+
+
+
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 10px;
+    width: auto; /* Adjust width as needed */
+}
+
+button {
+    background: rgba(255, 255, 255, 0); /* Semi-transparent buttons */
+    border: none;
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "pf-videotext", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.progress {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent progress background */
+    height: 5px;
+    border-radius: 5px;
+    margin: 0 5px;
+    position: relative;
+}
+
+#progressBar {
+    background: #333; /* Progress bar color */
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+}
+
+.bg-options {
+    background-color: rgba(0, 0, 0, 0); /* Button background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding */
+    margin: 5px; /* Margin between buttons */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+    position: absolute;
+    
+}
+
+.bg-options-button:hover {
+    background-color: #555; /* Darker background on hover */
+    color: #fff; /* Keep text color */
+}
+
+.stream-message {
+    color:#fff;
+    padding-left: 10px;
+    font-size: 14px;
+    font-family: "pf-videotext", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
