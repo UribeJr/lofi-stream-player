@@ -23,3 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function changeBackground(gif) {
     document.getElementById('background-image').src = gif;
 }
+
+// To Do:
+// - Create a function that changes the color of the selected background
+// - Add pixel icons
+// - Add animated soundwave
+// - Add station picker (add 2 more stations)
+// - Add an option to play a game of Pong in a popup window
