@@ -21,22 +21,24 @@
     <img id="background-image" class="background-image" src="backgrounds/bg.gif">
 
     <div class="bg-options">
-        <button onclick="changeBackground('backgrounds/bg.gif')">Street Girl</button>
-        <button onclick="changeBackground('backgrounds/goku-eating.gif')">Anime</button>
-        <!-- <button onclick="changeBackground('backgrounds/rain.gif')">Rain</button> -->
-        <button onclick="changeBackground('backgrounds/space.gif')">Space</button>
-        <button onclick="changeBackground('backgrounds/night-shift.gif')">Night Shift</button>
+        <button class="active" id="bg1" onclick="changeBackground('backgrounds/bg.gif', this)">Street Girl</button>
+        <button id="bg2" onclick="changeBackground('backgrounds/goku-eating.gif', this)">Anime</button>
+        <button id="bg3" onclick="changeBackground('backgrounds/space.gif', this)">Space</button>
+        <button id="bg4" onclick="changeBackground('backgrounds/night-shift.gif', this)">Night Shift</button>
     </div>
 
     <div class="container">
         <!-- Custom Audio Player -->
         <div class="custom-audio-player">
             <button id="playPauseBtn">Play</button>
-            <!-- <button id="stopBtn">Stop</button> -->
-            <!-- <div class="progress">
-                <div id="progressBar"></div>
-            </div> -->
             <span class="stream-message">24/7 Lofi 👾</span>
+            <div class="sound-wave" id="soundWave">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
         <audio id="audio" src="https://usa9.fastcast4u.com/proxy/jamz?mp=/1" preload="auto"></audio>
     </div>

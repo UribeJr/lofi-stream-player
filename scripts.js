@@ -1,28 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('audio');
     const playPauseBtn = document.getElementById('playPauseBtn');
-    const stopBtn = document.getElementById('stopBtn');
-    
+    const soundWave = document.getElementById('soundWave');
+
     playPauseBtn.addEventListener('click', () => {
         if (audio.paused) {
             audio.play();
             playPauseBtn.textContent = 'Pause';
+            soundWave.classList.add('playing'); // Add animation when playing
         } else {
             audio.pause();
             playPauseBtn.textContent = 'Play';
+            soundWave.classList.remove('playing'); // Remove animation when paused
         }
     });
 
-    stopBtn.addEventListener('click', () => {
-        audio.pause();
-        audio.currentTime = 0;
+    // Stop the animation if the audio ends
+    audio.addEventListener('ended', () => {
         playPauseBtn.textContent = 'Play';
+        soundWave.classList.remove('playing');
     });
 });
 
-function changeBackground(gif) {
+
+function changeBackground(gif, element) {
     document.getElementById('background-image').src = gif;
+    
+    // Remove active class from all buttons
+    const buttons = document.querySelectorAll('.bg-options button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Add active class to the clicked button
+    element.classList.add('active');
 }
+
+
 
 // To Do:
 // - Create a function that changes the color of the selected background
