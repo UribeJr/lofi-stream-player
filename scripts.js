@@ -51,7 +51,7 @@ function clock() {
     hours = hours ? String(hours).padStart(2, '0') : '12'; // Adjust for '0' hour
 
     // Set the clock text
-    clockElement.textContent = `${hours}:${minutes} ${ampm}`;
+    clockElement.textContent = `${hours}:${minutes}${ampm}`;
 }
 
 // Update the clock every second
