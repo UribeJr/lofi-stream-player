@@ -43,8 +43,6 @@ body {
     left: 0;      /* Align to the left side of the screen */
     right: 0;     /* Allow stretching to the right side */
     padding: 20px;
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space between items */
     align-items: center; /* Center vertically */
 }
 
@@ -149,4 +147,13 @@ font-style: normal;
 @keyframes wave {
     0%, 100% { height: 10px; }
     50% { height: 20px; }
+}
+
+textarea {
+    display: block;
+    resize: none;
+    background-color: #00000073;
+    color: #fff;
+    padding: 10px 15px;
+    margin-left: 20px;
 }
