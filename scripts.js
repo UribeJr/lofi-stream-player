@@ -61,6 +61,16 @@ setInterval(clock, 1000);
 clock();
 
 
+// Download link for notes
+function downloadText(element){
+
+    var data = element.value;
+    var downloadbtn = document.getElementById('text-download');
+    downloadbtn.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(data);
+    console.log(data);
+  };
+
+
 
 
 // To Do:

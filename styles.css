@@ -156,4 +156,11 @@ textarea {
     color: #fff;
     padding: 10px 15px;
     margin-left: 20px;
+    font-family: "pf-videotext", sans-serif;
+}
+
+#text-download {
+    display: flex;
+    margin-left: 20px;
+    color: #fff;
 }
