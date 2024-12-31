@@ -6,6 +6,7 @@ body {
     overflow: hidden;
     color: #fff;
     background: linear-gradient(to bottom, #2c3e50, #4ca1af); /* Gradient background */
+    /* cursor: url('precision-cursor.png'), auto;  */
 }
 
 .background-video, .background-image {
@@ -41,14 +42,22 @@ body {
 
 .custom-audio-player {
     display: flex;
+    flex-direction: column; /* Ensure elements are stacked vertically */
     align-items: center;
-    background: rgba(0, 0, 0, 0.7); /* Darker background */
-    padding: 15px;
+    /* background: #00000046;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+    padding: 15px;
     /* width: 80%; */
     max-width: 600px;
     margin-bottom: 20px;
+}
+
+.custom-audio-player .controls {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .clock {
@@ -131,7 +140,7 @@ body {
     color: #fff; /* Text color */
     padding: 0; /* Remove padding */
     margin: 0 10px; /* Margin between words */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'pf-videotext', sans-serif;
     font-weight: 400;
     font-style: normal;
     cursor: pointer; /* Pointer cursor on hover */
@@ -172,7 +181,7 @@ button:focus {
     color: #fff;
     padding-left: 10px;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'pf-videotext', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -200,6 +209,8 @@ button:focus {
 .bar:nth-child(3) { animation-delay: 0.2s; }
 .bar:nth-child(4) { animation-delay: 0.3s; }
 .bar:nth-child(5) { animation-delay: 0.4s; }
+.bar:nth-child(6) { animation-delay: 0.5s; } /* Add delay for 6th bar */
+.bar:nth-child(7) { animation-delay: 0.6s; } /* Add delay for 7th bar */
 
 @keyframes wave {
     0%, 100% { height: 10px; }
@@ -253,7 +264,7 @@ textarea {
 
 .volume-control input[type="range"] {
     -webkit-appearance: none;
-    width: 150px; /* Adjust width as needed */
+    width: 120px; /* Adjust width as needed */
     margin-left: 10px;
     background: linear-gradient(to right, #ff00cc, #3333ff); /* Gradient background */
     border-radius: 3px;
@@ -363,13 +374,13 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* Maintain button width */
-    height: 40px; /* Maintain button height */
+    width: 30px; /* Maintain button width */
+    height: 30px; /* Maintain button height */
     transition: background 0.3s, color 0.3s;
 }
 
 #playPauseBtn i {
-    font-size: 20px; /* Ensure icon size is half */
+    font-size: 15px; /* Ensure icon size is half */
 }
 
 #playPauseBtn:hover {
@@ -390,17 +401,17 @@ textarea {
 
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 60px; /* Adjust top position to be below the hamburger icon */
     left: -200px; /* Hide sidebar initially */
     width: 200px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Dark background */
+    background-color: rgba(0, 0, 0, 0.3); Dark background
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     z-index: 1; /* Ensure it is above other elements */
     display: flex; /* Display sidebar */
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align items to the start */
     transition: left 0.3s ease-in-out; /* Smooth slide-in transition */
 }
 
@@ -429,4 +440,40 @@ textarea {
     cursor: pointer;
     font-size: 24px;
     color: #fff;
+    background: url('sunglasses.png') no-repeat center center; /* Use custom sunglasses icon */
+    background-size: contain; /* Ensure the icon fits within the element */
+    width: 30px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    text-indent: -9999px; /* Hide text */
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    background-color: royalblue;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile .name {
+    font-family: 'pf-videotext', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile .github-handle {
+    font-family: 'pf-videotext', sans-serif;
+    font-size: 16px;
+    color: #ccc;
 }

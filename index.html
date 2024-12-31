@@ -13,13 +13,15 @@
 <body>
 
     <div class="hamburger" onclick="toggleSidebar()">
-        <i class="fas fa-book"></i> <!-- Change to library icon -->
+        <!-- Remove Font Awesome icon -->
     </div>
 
     <div class="sidebar">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <div class="profile">
+            <img src="cold-face.png" alt="Profile Picture"> <!-- Update the path to the profile picture -->
+            <div class="name">Enrique Uribe</div>
+            <div class="github-handle">@UribeJr</div>
+        </div>
     </div>
 
     <div class="overlay"></div>
@@ -34,29 +36,33 @@
     </div>
 
     <div class="container">
-        <button id="playPongBtn" onclick="openPong()">Play Some Pong</button>
+        <!-- <button id="playPongBtn" onclick="openPong()">Play Some Pong</button>
         <canvas id="pong" width="400" height="300" style="display: none;"></canvas>
         <div id="score" style="display: none;">Player: 0 | AI: 0</div>
-        <button id="closePongBtn" onclick="closePong()" style="display: none;">Close Pong</button>
+        <button id="closePongBtn" onclick="closePong()" style="display: none;">Close Pong</button> -->
         
         <div class="custom-audio-player">
-            <button id="playPauseBtn"><i class="fas fa-play"></i></button> <!-- Use Font Awesome icon -->
-            <span class="stream-message">24/7 Lofi 👾</span>
-            <div class="sound-wave" id="soundWave">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <div class="volume-control">
-                <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+            <span class="stream-message">24/7 Lofi 👾</span> <!-- Move stream message here -->
+            <div class="controls">
+                <button id="playPauseBtn"><i class="fas fa-play"></i></button> <!-- Use Font Awesome icon -->
+                <div class="sound-wave" id="soundWave">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div> <!-- Add 6th bar -->
+                    <div class="bar"></div> <!-- Add 7th bar -->
+                </div>
+                <div class="volume-control">
+                    <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+                </div>
             </div>
         </div>
         <audio id="audio" src="https://usa9.fastcast4u.com/proxy/jamz?mp=/1" preload="auto"></audio>
     </div>
 
-    <div class="digital-clock" id="clock"></div> <!-- Digital clock element -->
+    <!-- <div class="digital-clock" id="clock"></div> Digital clock element -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
