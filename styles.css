@@ -1,13 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Use a modern font */
     text-align: center;
     margin: 0;
     padding: 0;
     overflow: hidden;
     color: #fff;
+    background: linear-gradient(to bottom, #2c3e50, #4ca1af); /* Gradient background */
 }
 
-.background-video {
+.background-video, .background-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -23,18 +24,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.222); /* Adjust opacity for the darkening effect */
-    z-index: 0; /* Place above the GIF but below other content */
-}
-
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5); /* Darker overlay */
+    z-index: 0;
 }
 
 .container {
@@ -43,30 +34,65 @@ body {
     left: 0;      /* Align to the left side of the screen */
     right: 0;     /* Allow stretching to the right side */
     padding: 20px;
-    align-items: center; /* Center vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .custom-audio-player {
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0); /* Semi-transparent background */
-    padding: 10px;
+    background: rgba(0, 0, 0, 0.7); /* Darker background */
+    padding: 15px;
     border-radius: 10px;
-    width: auto; /* Adjust width as needed */
-    flex-grow: 1; /* Allow this to grow and take available space */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    /* width: 80%; */
+    max-width: 600px;
+    margin-bottom: 20px;
 }
 
 .clock {
+    width: 100px;
+    height: 100px;
+    border: 5px solid #00ff00;
+    border-radius: 50%;
+    position: relative;
     margin-left: auto; /* Push the clock to the right */
     text-align: right; /* Ensures text is right-aligned */
     font-family: "pf-videotext", sans-serif;
-    font-size: 20px;
-    background-color:rgba(133, 46, 127, 0.664);
-    padding: 3px 15px 10px 15px;
-    border-radius: 8px;
+    background-color: rgba(30, 30, 30, 0.8);
 }
 
+.clock-face {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateY(-3px); /* Adjust for border */
+}
 
+.hand {
+    width: 50%;
+    height: 2px;
+    background: #00ff00;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hand {
+    height: 4px;
+}
+
+.minute-hand {
+    height: 3px;
+}
+
+.second-hand {
+    height: 2px;
+}
 
 .progress {
     flex: 1;
@@ -85,39 +111,70 @@ body {
 }
 
 .bg-options {
-    background-color: rgba(0, 0, 0, 0); /* Button background color */
-    padding: 10px 20px; /* Padding */
+    background-color: transparent; /* Remove background color */
+    padding: 0; /* Remove padding */
     margin: 5px; /* Margin between buttons */
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 0; /* Remove rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+    transition: color 0.3s; /* Smooth transition for color */
     position: absolute;
+    top: 20px;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    display: flex;
+    justify-content: center; /* Center the buttons */
 }
 
-button {
-    background: rgba(255, 255, 255, 0); /* Semi-transparent buttons */
-    border: none;
-    color: #fff;
-    padding: 10px;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "pf-videotext", sans-serif;
+.bg-options button {
+    background: none; /* Remove button background */
+    border: none; /* Remove button border */
+    color: #fff; /* Text color */
+    padding: 0; /* Remove padding */
+    margin: 0 10px; /* Margin between words */
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: normal;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: color 0.3s; /* Smooth transition for color */
+}
+
+.bg-options button:hover {
+    color: rgb(200, 62, 191); /* Change color on hover */
 }
 
 .bg-options button.active {
-    color: rgb(200, 62, 191);
+    color: rgb(200, 62, 191); /* Active color */
+}
+
+button {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent buttons */
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: color 0.3s; /* Remove background transition */
+}
+
+button:hover {
+    color: #000; /* Change text color on hover */
+}
+
+button:focus {
+    outline: none; /* Remove focus outline */
 }
 
 .stream-message {
-    color:#fff;
+    color: #fff;
     padding-left: 10px;
     font-size: 14px;
-    font-family: "pf-videotext", sans-serif;
-font-weight: 400;
-font-style: normal;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .sound-wave {
@@ -152,15 +209,224 @@ font-style: normal;
 textarea {
     display: block;
     resize: none;
-    background-color: #00000073;
-    color: #fff;
+    background-color: rgba(30, 30, 30, 0.8); /* Dark background with semi-transparency */
+    color: #d4d4d4; /* Light text color */
     padding: 10px 15px;
     margin-left: 20px;
-    font-family: "pf-videotext", sans-serif;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    font-size: 14px;
+    border: 1px solid #333; /* Border for a more defined look */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for a more IDE-like appearance */
+    width: 30%; /* 30% width for desktop */
+    height: 150px; /* Adjust height */
+    text-align: left; /* Left-align text */
 }
+
+@media (max-width: 768px) {
+    textarea {
+        width: calc(100% - 40px); /* Full width for mobile */
+    }
+}
+
+/* Syntax highlighting */
+.token.comment { color: #6a9955; }
+.token.keyword { color: #569cd6; }
+.token.string { color: #ce9178; }
+.token.function { color: #dcdcaa; }
+.token.operator { color: #d4d4d4; }
+.token.punctuation { color: #d4d4d4; }
 
 #text-download {
     display: flex;
     margin-left: 20px;
+}
+
+/* Modern retro volume slider styles */
+.volume-control {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px; /* Adjust margin as needed */
+}
+
+.volume-control input[type="range"] {
+    -webkit-appearance: none;
+    width: 150px; /* Adjust width as needed */
+    margin-left: 10px;
+    background: linear-gradient(to right, #ff00cc, #3333ff); /* Gradient background */
+    border-radius: 3px;
+    height: 7px;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid #ff00cc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.volume-control input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid #ff00cc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.volume-control input[type="range"]:hover {
+    background: linear-gradient(to right, #ff00cc, #ff6600); /* Change gradient on hover */
+}
+
+.volume-control input[type="range"]:hover::-webkit-slider-thumb {
+    background: #ff6600;
+}
+
+.volume-control input[type="range"]:hover::-moz-range-thumb {
+    background: #ff6600;
+}
+
+.CodeMirror {
+    background-color: rgba(30, 30, 30, 0.8) !important; /* Dark background with 50% transparency */
+    color: #d4d4d4; /* Light text color */
+    border: 1px solid #333; /* Border for a more defined look */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for a more IDE-like appearance */
+    width: 30%; /* 30% width for desktop */
+    height: 150px; /* Adjust height */
+    text-align: left; /* Left-align text */
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .CodeMirror {
+        width: calc(100% - 40px); /* Full width for mobile */
+    }
+}
+
+#pong {
+    display: block;
+    margin: 20px auto;
+    background-color: #000;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 400px; /* Updated size */
+    height: 300px; /* Updated size */
+}
+
+#playPongBtn, #closePongBtn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left; /* Left-align text */
+    transition: background 0.3s, color 0.3s;
+}
+
+#playPongBtn {
+    margin-left: 20px; /* Align with play/pause button */
+}
+
+#closePongBtn {
+    margin-left: 20px; /* Align with play/pause button */
+}
+
+#playPongBtn:hover, #closePongBtn:hover {
+    background: #fff;
+    color: #000;
+}
+
+#playPauseBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%; /* Make the button round */
+    cursor: pointer;
+    font-size: 10px; /* Decrease icon size to half */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Maintain button width */
+    height: 40px; /* Maintain button height */
+    transition: background 0.3s, color 0.3s;
+}
+
+#playPauseBtn i {
+    font-size: 20px; /* Ensure icon size is half */
+}
+
+#playPauseBtn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.digital-clock {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #00ff00;
+    font-family: "pf-videotext", sans-serif;
+    font-size: 24px;
+    text-align: center;
+    transform: translateY(-170%); /* Adjust position to align with the custom audio player div */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px; /* Hide sidebar initially */
+    width: 200px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Dark background */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 1; /* Ensure it is above other elements */
+    display: flex; /* Display sidebar */
+    flex-direction: column;
+    align-items: center;
+    transition: left 0.3s ease-in-out; /* Smooth slide-in transition */
+}
+
+.sidebar.open {
+    left: 0; /* Show sidebar when open */
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin: 15px 0;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: rgb(200, 62, 191); /* Change color on hover */
+}
+
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2; /* Ensure it is above other elements */
+    cursor: pointer;
+    font-size: 24px;
     color: #fff;
 }
