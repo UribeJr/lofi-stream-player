@@ -3,8 +3,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const playPauseBtn = document.getElementById('playPauseBtn');
     const soundWave = document.getElementById('soundWave');
     const volumeControl = document.getElementById('volume');
+    const lofiBeatsBtn = document.querySelector('.station-list li:nth-child(1)');
+    const calmStudyingBtn = document.querySelector('.station-list li:nth-child(2)');
 
-    playPauseBtn.addEventListener('click', () => {
+    let player;
+    let currentSource = 'radio'; // Track the current audio source
+
+    window.onYouTubeIframeAPIReady = function() {
+        player = new YT.Player('player', {
+            height: '0',
+            width: '0',
+            videoId: 'Vg13S-zzol0', // YouTube video ID
+            events: {
+                'onReady': onPlayerReady,
+                'onError': onPlayerError // Add error handling
+            }
+        });
+    };
+
+    function onPlayerReady() {
+        playPauseBtn.addEventListener('click', function() {
+            if (currentSource === 'radio') {
+                toggleRadio();
+            } else {
+                toggleYouTube();
+            }
+        });
+    }
+
+    function onPlayerError(event) {
+        console.error('Error occurred in YouTube player:', event.data); // Error handling
+    }
+
+    function toggleRadio() {
         if (audio.paused) {
             audio.play();
             playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Change to pause icon
@@ -14,6 +45,40 @@ document.addEventListener('DOMContentLoaded', () => {
             playPauseBtn.innerHTML = '<i class="fas fa-play"></i>'; // Change to play icon
             soundWave.classList.remove('playing'); // Remove animation when paused
         }
+    }
+
+    function toggleYouTube() {
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+            player.pauseVideo();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            soundWave.classList.remove('playing');
+        } else {
+            player.playVideo();
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            soundWave.classList.add('playing');
+        }
+    }
+
+    lofiBeatsBtn.addEventListener('click', () => {
+        if (currentSource === 'youtube') {
+            player.pauseVideo();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+        currentSource = 'radio';
+        audio.play();
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        soundWave.classList.add('playing');
+    });
+
+    calmStudyingBtn.addEventListener('click', () => {
+        if (currentSource === 'radio') {
+            audio.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+        currentSource = 'youtube';
+        player.playVideo();
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        soundWave.classList.add('playing');
     });
 
     // Stop the animation if the audio ends
@@ -25,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update audio volume based on volume control input
     volumeControl.addEventListener('input', (event) => {
         audio.volume = event.target.value / 100;
+        player.setVolume(event.target.value); // Update YouTube player volume
     });
 
     const canvas = document.getElementById('pong');
@@ -161,7 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const formattedHours = hours % 12 || 12;
 
         const clockElement = document.getElementById('clock');
-        clockElement.textContent = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
+        if (clockElement) {
+            clockElement.textContent = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
+        }
     }
 
     setInterval(setClock, 1000);
@@ -179,32 +247,6 @@ function changeBackground(gif, element) {
     element.classList.add('active');
 }
 
-var clockElement = document.getElementById('clock');
-
-function clock() {
-    // Get the current date and time
-    var now = new Date();
-    
-    // Format hours, minutes, and seconds
-    var hours = now.getHours();
-    var minutes = String(now.getMinutes()).padStart(2, '0'); // Pad with zero if needed
-    // var seconds = String(now.getSeconds()).padStart(2, '0'); // Pad with zero if needed
-    
-    // Convert to 12-hour format
-    var ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12; // Convert to 12-hour format
-    hours = hours ? String(hours).padStart(2, '0') : '12'; // Adjust for '0' hour
-
-    // Set the clock text
-    clockElement.textContent = `${hours}:${minutes}${ampm}`;
-}
-
-// Update the clock every second
-setInterval(clock, 1000);
-
-// Initial call to display clock immediately on load
-clock();
-
 function downloadText(element){
     var data = element.value; // Use value instead of textContent
     var downloadbtn = document.getElementById('text-download');
@@ -216,8 +258,3 @@ function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle('open');
 }
-
-// To Do:
-// - Add pixel icons
-// - Add station picker (add 2 more stations)
-// - Add an option to play a game of Pong in a popup window

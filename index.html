@@ -22,6 +22,12 @@
             <div class="name">Enrique Uribe</div>
             <div class="github-handle">@UribeJr</div>
         </div>
+        <div class="station-list">
+            <ul>
+                <li>Lofi Beats</li>
+                <li>Calm Studying 📕</li>
+            </ul>
+        </div>
     </div>
 
     <div class="overlay"></div>
@@ -44,7 +50,7 @@
         <div class="custom-audio-player">
             <span class="stream-message">24/7 Lofi 👾</span> <!-- Move stream message here -->
             <div class="controls">
-                <button id="playPauseBtn"><i class="fas fa-play"></i></button> <!-- Use Font Awesome icon -->
+                <button id="playPauseBtn"><i class="fas fa-play"></i></button>
                 <div class="sound-wave" id="soundWave">
                     <div class="bar"></div>
                     <div class="bar"></div>
@@ -59,11 +65,12 @@
                 </div>
             </div>
         </div>
+        <div id="player"></div>
         <audio id="audio" src="https://usa9.fastcast4u.com/proxy/jamz?mp=/1" preload="auto"></audio>
     </div>
 
     <!-- <div class="digital-clock" id="clock"></div> Digital clock element -->
-    
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/htmlmixed/htmlmixed.min.js"></script>

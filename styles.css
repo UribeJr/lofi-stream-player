@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Use a modern font */
+    font-family: "pf-videotext", sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -7,6 +7,15 @@ body {
     color: #fff;
     background: linear-gradient(to bottom, #2c3e50, #4ca1af); /* Gradient background */
     /* cursor: url('precision-cursor.png'), auto;  */
+}
+
+ul {
+    list-style-type: none; /* Remove default list style */
+}
+
+li {
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 .background-video, .background-image {
@@ -47,10 +56,10 @@ body {
     /* background: #00000046;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
-    padding: 15px;
+    /* padding: 15px; */
     /* width: 80%; */
     max-width: 600px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .custom-audio-player .controls {
@@ -180,10 +189,11 @@ button:focus {
 .stream-message {
     color: #fff;
     padding-left: 10px;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'pf-videotext', sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin-bottom: 15px;
 }
 
 .sound-wave {
@@ -363,25 +373,17 @@ textarea {
     color: #000;
 }
 
-#playPauseBtn {
+#playPauseBtn, #ytplay {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid #fff;
     color: #fff;
-    padding: 10px;
-    border-radius: 50%; /* Make the button round */
     cursor: pointer;
-    font-size: 10px; /* Decrease icon size to half */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px; /* Maintain button width */
-    height: 30px; /* Maintain button height */
     transition: background 0.3s, color 0.3s;
 }
 
-#playPauseBtn i {
-    font-size: 15px; /* Ensure icon size is half */
-}
 
 #playPauseBtn:hover {
     background: #fff;
