@@ -194,6 +194,7 @@ button:focus {
     font-weight: 400;
     font-style: normal;
     margin-bottom: 15px;
+    max-width: 250px;
 }
 
 .sound-wave {
@@ -403,13 +404,13 @@ textarea {
 
 .sidebar {
     position: fixed;
-    top: 60px; /* Adjust top position to be below the hamburger icon */
+    top: 40px; /* Adjust top position to be below the hamburger icon */
     left: -200px; /* Hide sidebar initially */
     width: 200px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); Dark background
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    /* background-color: rgba(0, 0, 0, 0.3);  */
+    /* padding: 10px; */
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);  */
     z-index: 1; /* Ensure it is above other elements */
     display: flex; /* Display sidebar */
     flex-direction: column;
@@ -442,21 +443,20 @@ textarea {
     cursor: pointer;
     font-size: 24px;
     color: #fff;
-    background: url('sunglasses.png') no-repeat center center; /* Use custom sunglasses icon */
+    background: url('astronaut.png') no-repeat center center; /* Use custom sunglasses icon */
     background-size: contain; /* Ensure the icon fits within the element */
-    width: 30px; /* Adjust width as needed */
-    height: 30px; /* Adjust height as needed */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
     text-indent: -9999px; /* Hide text */
 }
 
 .profile {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: left;
+    text-align: left;
     color: #fff;
-    margin-top: 20px;
-    background-color: royalblue;
+    margin-top: 40px;
     padding: 20px;
     margin-left: 20px;
 }
@@ -464,7 +464,7 @@ textarea {
 .profile img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 5%;
     margin-bottom: 10px;
 }
 

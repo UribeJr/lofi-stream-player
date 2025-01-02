@@ -13,12 +13,11 @@
 <body>
 
     <div class="hamburger" onclick="toggleSidebar()">
-        <!-- Remove Font Awesome icon -->
     </div>
 
     <div class="sidebar">
         <div class="profile">
-            <img src="cold-face.png" alt="Profile Picture"> <!-- Update the path to the profile picture -->
+            <img src="music-player-profile-pic.jpg" alt="Profile Picture"> <!-- Update the path to the profile picture -->
             <div class="name">Enrique Uribe</div>
             <div class="github-handle">@UribeJr</div>
         </div>
@@ -32,11 +31,11 @@
 
     <div class="overlay"></div>
     
-    <img id="background-image" class="background-image" src="backgrounds/bg.gif">
+    <img id="background-image" class="background-image" src="backgrounds/hakusho.gif">
 
     <div class="bg-options">
-        <button class="active" id="bg1" onclick="changeBackground('backgrounds/bg.gif', this)">Street Girl</button>
-        <button id="bg2" onclick="changeBackground('backgrounds/hakusho.gif', this)">Hakusho</button>
+        <button class="active" id="bg1" onclick="changeBackground('backgrounds/hakusho.gif', this)">Hakusho</button>
+        <button id="bg2" onclick="changeBackground('backgrounds/bg.gif', this)">Street Girl</button>
         <button id="bg3" onclick="changeBackground('backgrounds/space.gif', this)">Space</button>
         <button id="bg4" onclick="changeBackground('backgrounds/night-shift.gif', this)">Night Shift</button>
     </div>
@@ -48,7 +47,7 @@
         <button id="closePongBtn" onclick="closePong()" style="display: none;">Close Pong</button> -->
         
         <div class="custom-audio-player">
-            <span class="stream-message">24/7 Lofi 👾</span> <!-- Move stream message here -->
+            <span id="audio-title" class="stream-message"></span>
             <div class="controls">
                 <button id="playPauseBtn"><i class="fas fa-play"></i></button>
                 <div class="sound-wave" id="soundWave">
@@ -61,7 +60,7 @@
                     <div class="bar"></div> <!-- Add 7th bar -->
                 </div>
                 <div class="volume-control">
-                    <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+                    <input type="range" id="volume" name="volume" min="0" max="100" value="100">
                 </div>
             </div>
         </div>
