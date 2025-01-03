@@ -573,4 +573,7 @@ textarea {
     .custom-audio-player .controls {
         width: auto;
     }
+    #weather-icon {
+        display: none;
+    }
 }
