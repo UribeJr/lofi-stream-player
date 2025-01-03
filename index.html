@@ -19,13 +19,20 @@
         <div class="profile">
             <img src="music-player-profile-pic.jpg" alt="Profile Picture"> <!-- Update the path to the profile picture -->
             <div class="name">Enrique Uribe</div>
-            <div class="github-handle">@UribeJr</div>
+            <div class="github-handle">Github: @UribeJr</div>
         </div>
         <div class="station-list">
             <ul>
                 <li>Lofi Beats</li>
-                <li>Calm Studying 📕</li>
+                <li>Raining in Japan 🌧️</li>
+                <li>Piano - Studying, Relaxing 🎹</li>
             </ul>
+        </div>
+        <div class="bg-previews">
+            <div class="bg-preview" onclick="changeBackground('backgrounds/hakusho.gif', this)" style="background-image: url('backgrounds/hakusho.gif');"></div>
+            <div class="bg-preview" onclick="changeBackground('backgrounds/bg.gif', this)" style="background-image: url('backgrounds/bg.gif');"></div>
+            <div class="bg-preview" onclick="changeBackground('backgrounds/space.gif', this)" style="background-image: url('backgrounds/space.gif');"></div>
+            <div class="bg-preview" onclick="changeBackground('backgrounds/night-shift.gif', this)" style="background-image: url('backgrounds/night-shift.gif');"></div>
         </div>
     </div>
 
@@ -33,11 +40,18 @@
     
     <img id="background-image" class="background-image" src="backgrounds/hakusho.gif">
 
-    <div class="bg-options">
+    <!-- <div class="bg-options">
         <button class="active" id="bg1" onclick="changeBackground('backgrounds/hakusho.gif', this)">Hakusho</button>
         <button id="bg2" onclick="changeBackground('backgrounds/bg.gif', this)">Street Girl</button>
         <button id="bg3" onclick="changeBackground('backgrounds/space.gif', this)">Space</button>
         <button id="bg4" onclick="changeBackground('backgrounds/night-shift.gif', this)">Night Shift</button>
+    </div> -->
+
+    <div class="weather">
+        <div id="weather-icon"></div>
+        <div id="weather-description"></div>
+        <div id="temperature"></div>
+        <div id="high-low"></div>
     </div>
 
     <div class="container">
@@ -64,7 +78,8 @@
                 </div>
             </div>
         </div>
-        <div id="player"></div>
+        <div id="player1"></div>
+        <div id="player2"></div>
         <audio id="audio" src="https://usa9.fastcast4u.com/proxy/jamz?mp=/1" preload="auto"></audio>
     </div>
 
