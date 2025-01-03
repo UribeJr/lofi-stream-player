@@ -9,6 +9,68 @@ body {
     /* cursor: url('precision-cursor.png'), auto;  */
 }
 
+#user-name-display {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #ffffff;
+    font-family: 'pf-videotext', sans-serif;
+    font-size: 18px;
+    /* background-color: rgb(255, 255, 255); */
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+#name-input-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.273);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-message {
+    font-size: 16px;
+    width: 75%
+}
+.name-message {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color:#73efff;
+}
+
+#name-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "pf-videotext", sans-serif;
+}
+
+#submit-name-btn {
+    padding: 5px 20px 10px 20px;;
+    border: 1px solid #fff;;
+    border-radius: 5px;
+    background-color: #ffffff17;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: "pf-videotext", sans-serif;
+    font-size: 16px;
+}
+
+#submit-name-btn:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
 ul {
     list-style-type: none; /* Remove default list style */
 }
@@ -531,8 +593,8 @@ textarea {
 }
 
 #weather-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-size: cover;
     background-position: center;
     margin-right: 12px;
@@ -565,6 +627,7 @@ textarea {
         left: auto; /* Remove centering */
         right: 20px; /* Align to the right */
         transform: none; /* Remove centering transform */
+        top: 9%;
     }
     .volume-control {
         display: none; /* Hide volume control on mobile */;

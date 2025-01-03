@@ -172,6 +172,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     getLocationAndFetchWeather();
+
+    // Set default station to "Lofi Beats"
+    const defaultStation = 'Lofi Beats 👾';
+    streamTitle.textContent = defaultStation;
+    audio.play();
+    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    soundWave.classList.add('playing');
+    currentSource = 'radio';
+
+    // Handle name input
+    const nameInputContainer = document.getElementById('name-input-container');
+    const nameInput = document.getElementById('name-input');
+    const submitNameBtn = document.getElementById('submit-name-btn');
+    const userNameDisplay = document.getElementById('user-name-display');
+    // const playerInfoContainer = document.getElementById('player-info-container');
+
+    submitNameBtn.addEventListener('click', () => {
+        const userName = nameInput.value;
+        if (userName) {
+            userNameDisplay.textContent = `Hello, ${userName}!`;
+            // playerInfoContainer.style.display = 'block';
+            nameInputContainer.style.display = 'none';
+
+        }
+    });
+
+    const backgrounds = [
+        'backgrounds/hakusho.gif',
+        'backgrounds/bg.gif',
+        'backgrounds/space.gif',
+        'backgrounds/night-shift.gif'
+    ];
+    let currentBackgroundIndex = 0;
+
+    function switchBackground() {
+        currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+        document.getElementById('background-image').src = backgrounds[currentBackgroundIndex];
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 's' || event.key === 'S') {
+            switchBackground();
+        }
+    });
 });
 
 function changeBackground(gif, element) {
